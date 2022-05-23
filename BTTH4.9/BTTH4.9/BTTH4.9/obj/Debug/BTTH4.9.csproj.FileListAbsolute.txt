@@ -1,0 +1,11 @@
+D:\LTWindows\BTTH4.9\BTTH4.9\bin\Debug\BTTH4.9.exe.config
+D:\LTWindows\BTTH4.9\BTTH4.9\bin\Debug\BTTH4.9.exe
+D:\LTWindows\BTTH4.9\BTTH4.9\bin\Debug\BTTH4.9.pdb
+D:\LTWindows\BTTH4.9\BTTH4.9\obj\Debug\BTTH4.9.csproj.AssemblyReference.cache
+D:\LTWindows\BTTH4.9\BTTH4.9\obj\Debug\BTTH4.9.csproj.SuggestedBindingRedirects.cache
+D:\LTWindows\BTTH4.9\BTTH4.9\obj\Debug\BTTH4._9.Form1.resources
+D:\LTWindows\BTTH4.9\BTTH4.9\obj\Debug\BTTH4._9.Properties.Resources.resources
+D:\LTWindows\BTTH4.9\BTTH4.9\obj\Debug\BTTH4.9.csproj.GenerateResource.cache
+D:\LTWindows\BTTH4.9\BTTH4.9\obj\Debug\BTTH4.9.csproj.CoreCompileInputs.cache
+D:\LTWindows\BTTH4.9\BTTH4.9\obj\Debug\BTTH4.9.exe
+D:\LTWindows\BTTH4.9\BTTH4.9\obj\Debug\BTTH4.9.pdb

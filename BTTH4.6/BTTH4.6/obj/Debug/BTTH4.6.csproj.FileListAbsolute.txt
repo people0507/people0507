@@ -1,0 +1,11 @@
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\bin\Debug\BTTH4.6.exe.config
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\bin\Debug\BTTH4.6.exe
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\bin\Debug\BTTH4.6.pdb
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\obj\Debug\BTTH4.6.csproj.AssemblyReference.cache
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\obj\Debug\BTTH4.6.csproj.SuggestedBindingRedirects.cache
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\obj\Debug\BTTH4._6.Form1.resources
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\obj\Debug\BTTH4._6.Properties.Resources.resources
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\obj\Debug\BTTH4.6.csproj.GenerateResource.cache
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\obj\Debug\BTTH4.6.csproj.CoreCompileInputs.cache
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\obj\Debug\BTTH4.6.exe
+D:\C#basic\project\Project1\BTTH4.6\BTTH4.6\obj\Debug\BTTH4.6.pdb
