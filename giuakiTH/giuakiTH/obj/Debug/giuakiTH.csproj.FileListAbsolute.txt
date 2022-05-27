@@ -1,0 +1,11 @@
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\bin\Debug\giuakiTH.exe.config
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\bin\Debug\giuakiTH.exe
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\bin\Debug\giuakiTH.pdb
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\obj\Debug\giuakiTH.csproj.AssemblyReference.cache
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\obj\Debug\giuakiTH.csproj.SuggestedBindingRedirects.cache
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\obj\Debug\giuakiTH.Form1.resources
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\obj\Debug\giuakiTH.Properties.Resources.resources
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\obj\Debug\giuakiTH.csproj.GenerateResource.cache
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\obj\Debug\giuakiTH.csproj.CoreCompileInputs.cache
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\obj\Debug\giuakiTH.exe
+D:\C#basic\project\Project1\giuakiTH\giuakiTH\obj\Debug\giuakiTH.pdb

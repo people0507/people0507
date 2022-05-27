@@ -186,7 +186,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "fChangePW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Đổi mật khẩu";
             this.Load += new System.EventHandler(this.formAccountProfile_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

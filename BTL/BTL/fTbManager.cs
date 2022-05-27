@@ -11,14 +11,14 @@ using System.Data.SqlClient;
 
 namespace BTL
 {
-    public partial class formTbManager : Form
+    public partial class fTbManager : Form
     {
         SqlConnection cn;
         SqlCommand cmd;
         string sql = @"Data Source=MSI\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable dt = new DataTable();
-        public formTbManager()
+        public fTbManager()
         {
             InitializeComponent();
         }
@@ -56,6 +56,22 @@ namespace BTL
             n.ShowDialog();
             this.Show();
             
+        }
+
+        private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fListProduct a = new fListProduct();
+            this.Hide();
+            a.ShowDialog();
+            this.Show();
+        }
+
+        private void sảnPhẩmToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fProduct b = new fProduct();
+            this.Hide();
+            b.ShowDialog();
+            this.Show();
         }
     }
 }

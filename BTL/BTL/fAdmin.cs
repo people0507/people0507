@@ -24,7 +24,7 @@ namespace BTL
         public void loadData()
         {
             cmd = cn.CreateCommand();
-            cmd.CommandText = "SELECT ROW_NUMBER() OVER(ORDER BY Account.UserName) as STT, Account.name as 'Họ tên', Account.UserName as 'Tên đăng nhập',Account.PassWord as 'Mật khẩu',Account.Sex as 'Giới tính', Account.Birth as 'Ngày sinh', Account.Born as 'Quê quán', Account.Role as 'Quyền' FROM Account";
+            cmd.CommandText = "SELECT ROW_NUMBER() OVER(ORDER BY Account.UserName) as STT, Account.name as 'Họ tên', Account.UserName as 'Tên đăng nhập',Account.PassWord as 'Mật khẩu',Account.Sex as 'Giới tính', Account.Birth as 'Ngày sinh', Account.Born as 'Quê quán', Account.Role as 'Quyền',Account.Contact as 'SĐT' FROM Account";
             adapter.SelectCommand = cmd;
             dt.Clear();
             adapter.Fill(dt);
@@ -61,7 +61,7 @@ namespace BTL
                 insert_gender = "Nữ";
             }
             cmd = cn.CreateCommand();
-            cmd.CommandText = "INSERT INTO Account (UserName,Name,PassWord,Role,Born,Sex,Birth) VALUES ('" + txtAcc.Text + "' , N'" + txtName.Text + "' , '" + txtPW.Text + "' , N'" + txtRole.Text + "' , N'" + txtHT.Text +"',N'" + insert_gender + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "')";
+            cmd.CommandText = "INSERT INTO Account (UserName,Name,PassWord,Role,Born,Sex,Birth,Contact) VALUES ('" + txtAcc.Text + "' , N'" + txtName.Text + "' , '" + txtPW.Text + "' , N'" + txtRole.Text + "' , N'" + txtHT.Text +"',N'" + insert_gender + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "','"+txtContact.Text+"')";
             cmd.ExecuteNonQuery();
             loadData();
         }
@@ -73,7 +73,7 @@ namespace BTL
             else insert_gender = "Nữ";
 
             cmd = cn.CreateCommand();
-            cmd.CommandText = "UPDATE Account SET UserName = N'" + txtAcc.Text + "', Name = N'" + txtName.Text + "', PassWord = N'" + txtPW.Text + "', Role = N'" + txtRole.Text + "', Born = N'" + txtHT.Text + "', Sex = N'" + insert_gender + "', Birth ='"+ dateTimePicker1.Value.ToString("yyyy/MM/dd")+"' WHERE Username = '" + txtAcc.Text +"'";
+            cmd.CommandText = "UPDATE Account SET UserName = N'" + txtAcc.Text + "', Name = N'" + txtName.Text + "', PassWord = N'" + txtPW.Text + "', Role = N'" + txtRole.Text + "', Born = N'" + txtHT.Text + "', Sex = N'" + insert_gender + "', Birth ='"+ dateTimePicker1.Value.ToString("yyyy/MM/dd")+"',Contact ='"+txtContact.Text+"' WHERE Username = '" + txtAcc.Text +"'";
             cmd.ExecuteNonQuery();
             loadData();
            
@@ -88,6 +88,7 @@ namespace BTL
             dateTimePicker1.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
             txtHT.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
             txtRole.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
+            txtContact.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
             if (dataGridView1.Rows[i].Cells[4].Value.ToString() == "Nam") rbMale.Checked = true;
             else rbFemale.Checked = true;
         }
@@ -115,6 +116,14 @@ namespace BTL
             cn = new SqlConnection(sql);
             cn.Open();
             loadData();
+        }
+
+        private void managerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fTbManager n = new fTbManager();
+            this.Hide();
+            n.ShowDialog();
+            this.Show();
         }
     }
 }
