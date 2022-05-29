@@ -22,6 +22,8 @@ namespace BTL
         {
             InitializeComponent();
         }
+        clsConnect cls = new clsConnect();
+
         connectDB conn = new connectDB();
         SqlConnection con;
         SqlCommand cm;
@@ -30,7 +32,7 @@ namespace BTL
         public void loadData()
         {
             cmd = cn.CreateCommand();
-            cmd.CommandText = "select * from Products,ListOfProduct where Products.id = ListOfProduct.id ";
+            cmd.CommandText = "select Products.idPr as [ID SP],Products.name as [Sản Phẩm],ListOfProduct.name as [Danh mục],Products.id as [ID Danh Mục],Products.price as [Giá Sp],Products.amount as [Số Lượng] from ListOfProduct,Products where ListOfProduct.id = Products.id ";
             adapter.SelectCommand = cmd;
             dt.Clear();
             adapter.Fill(dt);
@@ -55,11 +57,12 @@ namespace BTL
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = dataGridView2.CurrentRow.Index;
-            txtIDSP.Text = dataGridView2.Rows[i].Cells[2].Value.ToString();
+            txtIDSP.Text = dataGridView2.Rows[i].Cells[0].Value.ToString();
             txtNameSP.Text = dataGridView2.Rows[i].Cells[1].Value.ToString();
-            comboBox1.Text = dataGridView2.Rows[i].Cells[6].Value.ToString();
+            comboBox1.Text = dataGridView2.Rows[i].Cells[2].Value.ToString();
             txtprice.Text= dataGridView2.Rows[i].Cells[3].Value.ToString();
-
+            txtAmount.Text = dataGridView2.Rows[i].Cells[4].Value.ToString();
+            txtIDDM.Text = dataGridView2.Rows[i].Cells[2].Value.ToString();
         }
 
         private void fProduct_Load(object sender, EventArgs e)
@@ -67,12 +70,14 @@ namespace BTL
             cn = new SqlConnection(sql);
             cn.Open();
             loadData();
+            dataGridView2.DataSource = cls.LoadData();
+
         }
 
         private void btnAdd1_Click(object sender, EventArgs e)
         {
             cmd = cn.CreateCommand();
-            cmd.CommandText = "INSERT INTO Products (name, price) VALUES(N'"+txtNameSP.Text+"','"+txtprice.Text+"')";
+            cmd.CommandText = "INSERT INTO Products (idPr, name,id, price, amount) VALUES('"+txtIDSP.Text+"', N'"+txtNameSP.Text+"','"+txtIDDM.Text+"','"+txtprice.Text+"','"+txtAmount.Text+"')";
             cmd.ExecuteNonQuery();
             loadData();
             
@@ -81,19 +86,46 @@ namespace BTL
         private void btnDelete1_Click(object sender, EventArgs e)
         {
             cmd = cn.CreateCommand();
-            cmd.CommandText = "DELETE FROM Products WHERE id = '" + txtIDSP.Text + "'";
+            cmd.CommandText = "DELETE FROM Products where idPr = '" + txtIDSP.Text + "'";
             cmd.ExecuteNonQuery();
             loadData();
         }
 
         private void btnEdit1_Click(object sender, EventArgs e)
         {
-
+            cmd = cn.CreateCommand();
+            cmd.CommandText = " UPDATE Products SET idPr = '"+txtIDSP.Text+"', name = N'"+txtNameSP.Text+"', id = '"+txtIDDM.Text+"', price ='"+txtprice.Text+"', amount = '"+txtAmount.Text+"'where idPr='"+txtIDSP.Text+"'";
+            cmd.ExecuteNonQuery();
+            loadData();
+            
         }
 
         private void btnLoad1_Click(object sender, EventArgs e)
         {
+            fProduct_Load(null, null);
+        }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if(txtSearch.Text.Trim() == "")
+            {
+                MessageBox.Show("Bạn chưa nhập thông tin","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+            }
+            else
+            {
+                dt = new DataTable();
+                dt = cls.Search(txtSearch.Text.Trim());
+                if(dt.Rows.Count > 0)
+                {
+                    dataGridView2.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Bạn tìm: " + txtSearch.Text + " không có trong dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    fProduct_Load(null, null);
+                    txtSearch.Text = "";
+                }
+            }    
         }
     }
 }

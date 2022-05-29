@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsConnect.cs" />
     <Compile Include="connectDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +68,12 @@
     <Compile Include="fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTbManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="connectDB.resx">
+      <DependentUpon>connectDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fChangePW.resx">
       <DependentUpon>fChangePW.cs</DependentUpon>
     </EmbeddedResource>

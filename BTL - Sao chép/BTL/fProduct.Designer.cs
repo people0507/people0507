@@ -38,6 +38,11 @@
             this.btnEdit1 = new System.Windows.Forms.Button();
             this.btnDelete1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtIDDM = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtprice = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.txtNameSP = new System.Windows.Forms.TextBox();
             this.txtIDSP = new System.Windows.Forms.TextBox();
@@ -45,7 +50,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtprice = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel4.SuspendLayout();
@@ -57,17 +61,18 @@
             this.panel1.Controls.Add(this.dataGridView2);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(12, 27);
+            this.panel1.Location = new System.Drawing.Point(12, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1021, 628);
+            this.panel1.Size = new System.Drawing.Size(1034, 637);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 3);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 8);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(486, 610);
+            this.dataGridView2.Size = new System.Drawing.Size(527, 617);
             this.dataGridView2.TabIndex = 3;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -99,6 +104,7 @@
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnLoad1
             // 
@@ -142,6 +148,10 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txtIDDM);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.txtAmount);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtprice);
             this.panel3.Controls.Add(this.comboBox1);
             this.panel3.Controls.Add(this.txtNameSP);
@@ -152,8 +162,47 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(570, 323);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(425, 230);
+            this.panel3.Size = new System.Drawing.Size(425, 282);
             this.panel3.TabIndex = 4;
+            // 
+            // txtIDDM
+            // 
+            this.txtIDDM.Location = new System.Drawing.Point(115, 250);
+            this.txtIDDM.Name = "txtIDDM";
+            this.txtIDDM.Size = new System.Drawing.Size(283, 20);
+            this.txtIDDM.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 253);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "ID Danh mục:";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(115, 213);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(283, 20);
+            this.txtAmount.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 216);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Số lượng:";
+            // 
+            // txtprice
+            // 
+            this.txtprice.Location = new System.Drawing.Point(115, 169);
+            this.txtprice.Name = "txtprice";
+            this.txtprice.Size = new System.Drawing.Size(283, 20);
+            this.txtprice.TabIndex = 13;
             // 
             // comboBox1
             // 
@@ -213,13 +262,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "ID SP:";
             // 
-            // txtprice
-            // 
-            this.txtprice.Location = new System.Drawing.Point(115, 169);
-            this.txtprice.Name = "txtprice";
-            this.txtprice.Size = new System.Drawing.Size(283, 20);
-            this.txtprice.TabIndex = 13;
-            // 
             // fProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,5 +301,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox txtprice;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIDDM;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -11,10 +11,10 @@ using System.Data.SqlClient;
 
 namespace BTL
 {
-    public partial class formLogin : Form
+    public partial class fLogin : Form
     {
 
-        public formLogin()
+        public fLogin()
         {
             InitializeComponent();
         }
