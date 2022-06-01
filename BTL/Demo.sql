@@ -37,6 +37,16 @@ CREATE TABLE Products
 	FOREIGN KEY (idPr) REFERENCES dbo.ListOfProduct(id)
 )
 GO
+Create table Bill4
+(
+	nameKH nvarchar(100) not null,
+	namePr nvarchar(100) not null,
+	price float not null,
+	amount float not null,
+	ngaymua date
+)
+go
+
 
 Create table Bills(
 	nameKH nvarchar(100) not null primary key,

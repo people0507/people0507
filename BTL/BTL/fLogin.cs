@@ -40,6 +40,7 @@ namespace BTL
         private void btnLogin_Click(object sender, EventArgs e)
         {
             SqlConnection cn = new SqlConnection("Data Source=MSI\\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True");
+            SqlConnection cn1 = new SqlConnection("Data Source=MSI\\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True");
             try
             {
                 cn.Open();
@@ -50,6 +51,12 @@ namespace BTL
                 SqlCommand cmd = new SqlCommand(sql, cn);
                 SqlDataReader dr = cmd.ExecuteReader();
 
+                
+                cn1.Open();
+                string sql1 = "select * from Account where UserName='" + tk + "' and PassWord='" + mk + "' and Role ='" + role + "'";
+                SqlCommand cmd1 = new SqlCommand(sql, cn1);
+                SqlDataReader dr1 = cmd1.ExecuteReader();
+
 
                 if (dr.Read() == true && role == "admin")
                 {
@@ -57,9 +64,11 @@ namespace BTL
                     fAdmin f = new fAdmin();
                     this.Hide();
                     f.ShowDialog();
-                    this.Show();
+                    this.ShowDialog();
                 }
-                else if (dr.Read() == false && role == "user")
+                
+
+                if (dr1.Read() == true && role == "user")
                 {
                     MessageBox.Show("Đăng nhập thành công.");
                     fTbManager n = new fTbManager();
@@ -97,6 +106,11 @@ namespace BTL
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

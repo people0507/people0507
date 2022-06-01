@@ -56,6 +56,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -64,6 +65,9 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -77,9 +81,10 @@
             this.hóaĐơnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1044, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1063, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
@@ -122,7 +127,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(64, 168);
+            this.button1.Location = new System.Drawing.Point(25, 168);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 23);
             this.button1.TabIndex = 4;
@@ -151,9 +156,9 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(642, 65);
+            this.listView1.Location = new System.Drawing.Point(627, 65);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(378, 293);
+            this.listView1.Size = new System.Drawing.Size(405, 293);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -175,8 +180,8 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Số Lượng SP";
-            this.columnHeader4.Width = 76;
+            this.columnHeader4.Text = "Số Lượng Mua";
+            this.columnHeader4.Width = 86;
             // 
             // columnHeader5
             // 
@@ -236,13 +241,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Số lượng SP :";
+            this.label4.Text = "Số Lượng Mua :";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(131, 127);
+            this.textBox4.Location = new System.Drawing.Point(718, 171);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(257, 20);
             this.textBox4.TabIndex = 14;
@@ -276,13 +281,14 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label4);
@@ -300,6 +306,13 @@
             this.textBox5.Size = new System.Drawing.Size(257, 20);
             this.textBox5.TabIndex = 16;
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(131, 127);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(257, 20);
+            this.textBox6.TabIndex = 24;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -312,9 +325,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(238, 168);
+            this.button3.Location = new System.Drawing.Point(289, 168);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(99, 23);
             this.button3.TabIndex = 21;
             this.button3.Text = "In Hóa Đơn";
             this.button3.UseVisualStyleBackColor = true;
@@ -325,7 +338,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(33, 487);
+            this.panel2.Location = new System.Drawing.Point(33, 499);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(334, 81);
             this.panel2.TabIndex = 19;
@@ -358,7 +371,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(402, 514);
+            this.dateTimePicker1.Location = new System.Drawing.Point(402, 529);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 22;
@@ -373,11 +386,35 @@
             this.label10.TabIndex = 23;
             this.label10.Text = "Danh Sách Sản Phẩm";
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(734, 216);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(162, 20);
+            this.textBox7.TabIndex = 25;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(159, 168);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(110, 23);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "Xóa hóa đơn";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(718, 242);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(257, 20);
+            this.textBox8.TabIndex = 26;
+            // 
             // fTbManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1044, 601);
+            this.ClientSize = new System.Drawing.Size(1063, 601);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label8);
@@ -387,6 +424,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox8);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fTbManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -441,5 +481,9 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }

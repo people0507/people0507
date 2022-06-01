@@ -60,9 +60,9 @@ namespace BTL
             txtIDSP.Text = dataGridView2.Rows[i].Cells[0].Value.ToString();
             txtNameSP.Text = dataGridView2.Rows[i].Cells[1].Value.ToString();
             comboBox1.Text = dataGridView2.Rows[i].Cells[2].Value.ToString();
-            txtprice.Text= dataGridView2.Rows[i].Cells[3].Value.ToString();
-            txtAmount.Text = dataGridView2.Rows[i].Cells[4].Value.ToString();
-            txtIDDM.Text = dataGridView2.Rows[i].Cells[2].Value.ToString();
+            txtprice.Text= dataGridView2.Rows[i].Cells[4].Value.ToString();
+            txtAmount.Text = dataGridView2.Rows[i].Cells[5].Value.ToString();
+            txtIDDM.Text = dataGridView2.Rows[i].Cells[3].Value.ToString();
         }
 
         private void fProduct_Load(object sender, EventArgs e)
@@ -94,10 +94,12 @@ namespace BTL
         private void btnEdit1_Click(object sender, EventArgs e)
         {
             cmd = cn.CreateCommand();
-            cmd.CommandText = " UPDATE Products SET idPr = '"+txtIDSP.Text+"', name = N'"+txtNameSP.Text+"', id = '"+txtIDDM.Text+"', price ='"+txtprice.Text+"', amount = '"+txtAmount.Text+"'where idPr='"+txtIDSP.Text+"'";
+            cmd.CommandText = " UPDATE Products SET idPr = '"+txtIDSP.Text+"', name = N'"+txtNameSP.Text+"', id ='"+txtIDDM.Text+"', price = '"+txtprice.Text+"', amount = '"+txtAmount.Text+"' where idPr='" + txtIDSP.Text+"'";
             cmd.ExecuteNonQuery();
             loadData();
-            
+            //UPDATE Products SET idPr = 1, name = N'asd', id = 2, price = 10000, amount = 5
+
+
         }
 
         private void btnLoad1_Click(object sender, EventArgs e)

@@ -13,7 +13,14 @@ namespace BTL
 {
     public partial class fTbManager : Form
     {
-        
+        SqlConnection cn1;
+        SqlCommand cmd1;
+        string sql1 = @"Data Source=MSI\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True";
+        SqlDataAdapter adapter1 = new SqlDataAdapter();
+        DataTable dt1 = new DataTable();
+
+       
+
 
         public fTbManager()
         {
@@ -31,7 +38,20 @@ namespace BTL
             dataGridView1.DataSource = dt;
         }
   
+        public void LoadData()
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = @"Data Source=MSI\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True";
+            cn.Open();
 
+            SqlCommand cmd = new SqlCommand("select Products.idPr as [ID SP],Products.name as [Name],Products.price as [Giá],Products.amount as [Số lượng]   from Products ", cn);
+
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            dataGridView1.DataSource = dt;
+        }
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -51,38 +71,17 @@ namespace BTL
         }
 
         private void formTbManager_Load(object sender, EventArgs e)
-        {
+        { 
 
-        }
-
-        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fAdmin n = new fAdmin();
-            this.Hide();
-            n.ShowDialog();
-            this.Show();
-            
-        }
-
-        private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void sảnPhẩmToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
+            cn1 = new SqlConnection(sql1);
+            cn1.Open();
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             int a = Convert.ToInt32(textBox3.Text);
-            int b = Convert.ToInt32(textBox4.Text);
+            int b = Convert.ToInt32(textBox6.Text);
             int tong;
             tong = a * b;
             label5.Text = tong.ToString();
@@ -90,12 +89,23 @@ namespace BTL
             ListViewItem lvi = new ListViewItem(textBox1.Text);
             lvi.SubItems.Add(textBox2.Text);
             lvi.SubItems.Add(textBox3.Text);
-            lvi.SubItems.Add(textBox4.Text);
+            lvi.SubItems.Add(textBox6.Text);
             lvi.SubItems.Add(label5.Text);
-
+            
             listView1.Items.Add(lvi);
-            int c, d;
+            int c = Convert.ToInt32(textBox4.Text);
+            int d = Convert.ToInt32(textBox6.Text);
+            
+            int tong2 = 0;
+            tong2 = c - d;
+            textBox7.Text = tong2.ToString();
 
+            cmd1 = cn1.CreateCommand();
+            cmd1.CommandText = "UPDATE Products SET amount = '"+textBox7.Text+"' where idPr ='"+textBox1.Text+"'" ;
+            cmd1.ExecuteNonQuery();
+            LoadData();
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -106,6 +116,12 @@ namespace BTL
                 tong1 += Convert.ToDouble(listView1.Items[i].SubItems[4].Text);
             }
             label7.Text = tong1.ToString();
+
+            /*cmd1 = cn1.CreateCommand();
+            cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'"+textBox5.Text+"', N'"+textBox2.Text+"','"+textBox3.Text+"','"+textBox6.Text+"','"+dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
+            cmd1.ExecuteNonQuery();*/
+
+             //"INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -141,5 +157,30 @@ namespace BTL
         {
             this.Close();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+                int c = Convert.ToInt32(textBox7.Text);
+                int d = Convert.ToInt32(textBox6.Text);
+                int tong3 = 0;
+
+                tong3 = c + d;
+                textBox8.Text = tong3.ToString();
+
+                cmd1 = cn1.CreateCommand();
+                cmd1.CommandText = "UPDATE Products SET amount = '" + textBox8.Text + "' where idPr ='" + textBox1.Text + "'";
+                cmd1.ExecuteNonQuery();
+                LoadData();
+                listView1.Items.Clear();
+            
+                    
+            }
+           
+        }
     }
-}
+
