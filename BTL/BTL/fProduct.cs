@@ -32,7 +32,7 @@ namespace BTL
         public void loadData()
         {
             cmd = cn.CreateCommand();
-            cmd.CommandText = "select Products.idPr as [ID SP],Products.name as [Sản Phẩm],ListOfProduct.name as [Danh mục],Products.id as [ID Danh Mục],Products.price as [Giá Sp],Products.amount as [Số Lượng] from ListOfProduct,Products where ListOfProduct.id = Products.id ";
+            cmd.CommandText = "select Products.idPr,Products.name ,ListOfProduct.name ,Products.id ,Products.price ,Products.amount  from ListOfProduct,Products where ListOfProduct.id = Products.id ";
             adapter.SelectCommand = cmd;
             dt.Clear();
             adapter.Fill(dt);
@@ -70,7 +70,7 @@ namespace BTL
             cn = new SqlConnection(sql);
             cn.Open();
             loadData();
-            dataGridView2.DataSource = cls.LoadData();
+            
 
         }
 
@@ -102,7 +102,7 @@ namespace BTL
 
         private void btnLoad1_Click(object sender, EventArgs e)
         {
-            fProduct_Load(null, null);
+            fProduct_Load(sender,e);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

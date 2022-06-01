@@ -32,34 +32,20 @@ CREATE TABLE Products
 	name NVARCHAR(100) NOT NULL DEFAULT N'Chưa đặt tên',
 	id INT NOT NULL,
 	price FLOAT NOT NULL DEFAULT 0,
-	amout INT NOT NULL,
+	amount INT NOT NULL,
 	
 	FOREIGN KEY (idPr) REFERENCES dbo.ListOfProduct(id)
 )
 GO
 
+Create table Bills(
+	nameKH nvarchar(100) not null primary key,
+	namePr nvarchar(100) not null,
+	price float not null default 0,
+	amount int not null
 
-CREATE TABLE Bill
-(
-	id INT IDENTITY PRIMARY KEY,
-	DateCheckIn DATE NOT NULL DEFAULT GETDATE(),
-	DateCheckOut DATE,
-	status INT NOT NULL DEFAULT 0 
-	
 )
-GO
-
-CREATE TABLE BillInfo
-(
-	id INT IDENTITY PRIMARY KEY,
-	idBill INT NOT NULL,
-	idProduct INT NOT NULL,
-	count INT NOT NULL DEFAULT 0
-	
-	FOREIGN KEY (idBill) REFERENCES dbo.Bill(id),
-	FOREIGN KEY (idProduct) REFERENCES dbo.Product(id)
-)
-GO
+go
 
 insert into Account 
 	( UserName,

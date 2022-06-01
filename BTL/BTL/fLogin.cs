@@ -93,5 +93,10 @@ namespace BTL
         {
             textBox3.Text = "admin";
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

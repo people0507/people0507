@@ -9,7 +9,7 @@ using System.Data;
 
 namespace BTL
 {
-    public class clsConnect
+    public class clsConnect 
     {
         SqlConnection con;
         string connect = @"Data Source=MSI\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True";

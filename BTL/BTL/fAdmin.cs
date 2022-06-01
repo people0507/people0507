@@ -116,6 +116,14 @@ namespace BTL
             cn = new SqlConnection(sql);
             cn.Open();
             loadData();
+            txtName.Clear();
+            txtRole.Clear();
+            txtHT.Clear();
+            txtContact.Clear();
+            txtAcc.Clear();
+            txtPW.Clear();
+            rbFemale.Checked = false;
+            rbMale.Checked = false;
         }
 
         private void managerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,6 +132,110 @@ namespace BTL
             this.Hide();
             n.ShowDialog();
             this.Show();
+        }
+
+        private void danhMụcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fListProduct a = new fListProduct();
+            this.Hide();
+            a.ShowDialog();
+            this.Show();
+        }
+
+        private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fProduct b = new fProduct();
+            this.Hide();
+            b.ShowDialog();
+            this.Show();
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            if (txtName.Text == "")
+            {
+                errorProvider1.SetError(txtName, "Không được để trống tên !");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtContact_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAcc_Leave(object sender, EventArgs e)
+        {
+            if (txtAcc.Text == "")
+            {
+                errorProvider1.SetError(txtAcc, "Không được để trống tài khoản!");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtPW_Leave(object sender, EventArgs e)
+        {
+            if (txtPW.Text == "")
+            {
+                errorProvider1.SetError(txtPW, "Không được để trống mật khẩu!");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtHT_Leave(object sender, EventArgs e)
+        {
+            if (txtHT.Text == "")
+            {
+                errorProvider1.SetError(txtHT, "Không được để trống quê quán!");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtRole_Leave(object sender, EventArgs e)
+        {
+            if (txtRole.Text == "")
+            {
+                errorProvider1.SetError(txtRole, "Không được để trống quyền!");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtContact_TextChanged_1(object sender, EventArgs e)
+        {
+            Control ctr = (Control)sender;
+
+            if (ctr.Text.Trim().Length > 0 && !char.IsDigit(ctr.Text, ctr.Text.Length - 1))
+
+                this.errorProvider1.SetError(txtContact, "Hãy nhập chữ số!");
+
+            else
+
+                this.errorProvider1.Clear();
+        }
+
+        private void rbMale_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void rbFemale_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

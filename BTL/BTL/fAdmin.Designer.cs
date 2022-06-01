@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtContact = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,10 +56,15 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hàngHóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -94,6 +100,7 @@
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(226, 20);
             this.txtContact.TabIndex = 16;
+            this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged_1);
             // 
             // label8
             // 
@@ -110,6 +117,7 @@
             this.txtRole.Name = "txtRole";
             this.txtRole.Size = new System.Drawing.Size(226, 20);
             this.txtRole.TabIndex = 14;
+            this.txtRole.Leave += new System.EventHandler(this.txtRole_Leave);
             // 
             // label7
             // 
@@ -130,6 +138,7 @@
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Nữ";
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // rbMale
             // 
@@ -141,6 +150,7 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Nam";
             this.rbMale.UseVisualStyleBackColor = true;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // txtPW
             // 
@@ -148,6 +158,7 @@
             this.txtPW.Name = "txtPW";
             this.txtPW.Size = new System.Drawing.Size(226, 20);
             this.txtPW.TabIndex = 10;
+            this.txtPW.Leave += new System.EventHandler(this.txtPW_Leave);
             // 
             // dateTimePicker1
             // 
@@ -162,6 +173,7 @@
             this.txtHT.Name = "txtHT";
             this.txtHT.Size = new System.Drawing.Size(200, 20);
             this.txtHT.TabIndex = 8;
+            this.txtHT.Leave += new System.EventHandler(this.txtHT_Leave);
             // 
             // txtAcc
             // 
@@ -169,6 +181,7 @@
             this.txtAcc.Name = "txtAcc";
             this.txtAcc.Size = new System.Drawing.Size(223, 20);
             this.txtAcc.TabIndex = 7;
+            this.txtAcc.Leave += new System.EventHandler(this.txtAcc_Leave);
             // 
             // txtName
             // 
@@ -176,6 +189,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 20);
             this.txtName.TabIndex = 6;
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // label6
             // 
@@ -306,7 +320,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.managerToolStripMenuItem});
+            this.managerToolStripMenuItem,
+            this.hàngHóaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(909, 24);
@@ -316,9 +331,36 @@
             // managerToolStripMenuItem
             // 
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
-            this.managerToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.managerToolStripMenuItem.Text = "Manager";
+            this.managerToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.managerToolStripMenuItem.Text = "Bánh Hàng";
             this.managerToolStripMenuItem.Click += new System.EventHandler(this.managerToolStripMenuItem_Click);
+            // 
+            // hàngHóaToolStripMenuItem
+            // 
+            this.hàngHóaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.danhMụcToolStripMenuItem,
+            this.sảnPhẩmToolStripMenuItem});
+            this.hàngHóaToolStripMenuItem.Name = "hàngHóaToolStripMenuItem";
+            this.hàngHóaToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.hàngHóaToolStripMenuItem.Text = "Hàng Hóa";
+            // 
+            // danhMụcToolStripMenuItem
+            // 
+            this.danhMụcToolStripMenuItem.Name = "danhMụcToolStripMenuItem";
+            this.danhMụcToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.danhMụcToolStripMenuItem.Text = "Danh mục";
+            this.danhMụcToolStripMenuItem.Click += new System.EventHandler(this.danhMụcToolStripMenuItem_Click);
+            // 
+            // sảnPhẩmToolStripMenuItem
+            // 
+            this.sảnPhẩmToolStripMenuItem.Name = "sảnPhẩmToolStripMenuItem";
+            this.sảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.sảnPhẩmToolStripMenuItem.Text = "Sản phẩm";
+            this.sảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.sảnPhẩmToolStripMenuItem_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // fAdmin
             // 
@@ -339,6 +381,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,5 +416,9 @@
         private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
         private System.Windows.Forms.TextBox txtContact;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ToolStripMenuItem hàngHóaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem danhMụcToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
