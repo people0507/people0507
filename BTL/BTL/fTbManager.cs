@@ -117,22 +117,80 @@ namespace BTL
             }
             label7.Text = tong1.ToString();
 
-            /*cmd1 = cn1.CreateCommand();
-            cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'"+textBox5.Text+"', N'"+textBox2.Text+"','"+textBox3.Text+"','"+textBox6.Text+"','"+dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
-            cmd1.ExecuteNonQuery();*/
+          
+            //cmd1 = cn1.CreateCommand();
+            //cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'"+textBox5.Text+"', N'"+textBox2.Text+"','"+textBox3.Text+"','"+textBox6.Text+"','"+dateTimePicker1.Value.ToString("yyyy/MM/dd")+ "'";
+            //cmd1.ExecuteNonQuery();
 
              //"INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("*****$Siêu thị Team 8$*****",new Font("Centuey Gothic",30,FontStyle.Regular),Brushes.Black,new PointF(200,15));
-            e.Graphics.DrawString("ID   Sản Phẩm    Số Lượng    Giá     Thành Tiền   ", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(70, 100));
-            e.Graphics.DrawString("Tổng tiền: "+label7.Text, new Font("Centuey Gothic", 30, FontStyle.Regular), Brushes.Black, new PointF(200,800));
-            e.Graphics.DrawString("Tên Khách Hàng: "+textBox5.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 900));
-            e.Graphics.DrawString("Ngày mua hàng: "+dateTimePicker1.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 950));
+            e.Graphics.DrawString("*****$Siêu thị Team 8$*****", new Font("Centuey Gothic", 30, FontStyle.Regular), Brushes.Black, new PointF(200, 15));
+
+            e.Graphics.DrawString("ID", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(10, 100));
+            e.Graphics.DrawString("Sản Phẩm", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(100, 100));
+            e.Graphics.DrawString("Giá SP", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(300, 100));
+            e.Graphics.DrawString("Số Lượng", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(450, 100));
+            e.Graphics.DrawString("Thành Tiền", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(650, 100));
+
+
+
+
+            e.Graphics.DrawString("Tổng tiền: " + label7.Text, new Font("Centuey Gothic", 30, FontStyle.Regular), Brushes.Black, new PointF(200, 800));
+            e.Graphics.DrawString("Tên Khách Hàng: " + textBox5.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 900));
+
+            e.Graphics.DrawString("Ngày mua hàng: " + dateTimePicker1.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 950));
             e.Graphics.DrawString("*****Cảm ơn quý khách đã mua hàng******", new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(200, 1000));
+
+            int lap = 0 ;
+            int lap1 = 0;
+            int lap2 = 0 ;
+            int lap3 = 0;
+            int lap4 = 0;
+  
+            for (int a = 0; a < listView1.Items.Count; a++)
+            {
+                {
+                    e.Graphics.DrawString(listView1.Items[a].SubItems[0].Text , new Font("Arial Bold", 20), new SolidBrush(Color.Black), new PointF(20,200+lap));
+                    lap = lap + 50;
+                }
+            }
+
+            for (int b = 0; b < listView1.Items.Count; b++)
+            {
+                {
+                    e.Graphics.DrawString(listView1.Items[b].SubItems[1].Text, new Font("Arial Bold", 20), new SolidBrush(Color.Black), new PointF(110,200+lap1));
+                    lap1 = lap1 + 50;
+                }
+            }
+
+            for (int c = 0; c < listView1.Items.Count; c++)
+            {
+                {
+                    e.Graphics.DrawString(listView1.Items[c].SubItems[2].Text, new Font("Arial Bold", 20), new SolidBrush(Color.Black), new PointF(310,200+lap2));
+                    lap2 = lap2 + 50;
+                }
+            }
+
+            for (int d = 0; d < listView1.Items.Count; d++)
+            {
+                {
+                    e.Graphics.DrawString(listView1.Items[d].SubItems[3].Text, new Font("Arial Bold", 20), new SolidBrush(Color.Black), new PointF(500, 200 + lap3));
+                    lap3 = lap3 + 50;
+                }
+            }
+
+            for (int f = 0; f < listView1.Items.Count; f++)
+            {
+                {
+                    e.Graphics.DrawString(listView1.Items[f].SubItems[4].Text, new Font("Arial Bold", 20), new SolidBrush(Color.Black), new PointF(680, 200 + lap4));
+                    lap4 = lap4 + 50;
+                }
+            }
         }
+          
 
         private void printPreviewDialog1_Load(object sender, EventArgs e)
         {

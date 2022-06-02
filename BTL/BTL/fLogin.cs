@@ -68,7 +68,7 @@ namespace BTL
                 }
                 
 
-                if (dr1.Read() == true && role == "user")
+                if (dr1.Read() == true && role == "staff")
                 {
                     MessageBox.Show("Đăng nhập thành công.");
                     fTbManager n = new fTbManager();
@@ -95,7 +95,7 @@ namespace BTL
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            textBox3.Text = "user";
+            textBox3.Text = "staff";
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

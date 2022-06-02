@@ -104,7 +104,7 @@ namespace BTL
 
         private void btnLoad1_Click(object sender, EventArgs e)
         {
-            fProduct_Load(sender,e);
+            loadData();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
