@@ -15,4 +15,5 @@ D:\C#basic\project\Project1\BTL\BTL\obj\Debug\BTL.fListProduct.resources
 D:\C#basic\project\Project1\BTL\BTL\obj\Debug\BTL.fProduct.resources
 D:\C#basic\project\Project1\BTL\BTL\obj\Debug\BTL.connectDB.resources
 D:\C#basic\project\Project1\BTL\BTL\obj\Debug\BTL.fLogin.resources
-D:\C#basic\project\Project1\BTL\BTL\obj\Debug\BTL.Form1.resources
+D:\C#basic\project\Project1\BTL\BTL\obj\Debug\BTL.fBilli4.resources
+D:\C#basic\project\Project1\BTL\BTL\obj\Debug\BTL.fStatistics.resources

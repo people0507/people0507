@@ -110,6 +110,7 @@ VALUES(11, N'Nước Cam', 12, 7000, 45)
 
 Create table Bill4
 (
+	idBill int identity primary key,
 	nameKH nvarchar(100) not null,
 	namePr nvarchar(100) not null,
 	price float not null,
@@ -118,4 +119,20 @@ Create table Bill4
 )
 go
 
---INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES (N'Nhân', N'Chim', 10000, 2, CONVERT(DATETIME, '2022-06-03 00:00:00', 102))
+Create table Statistic
+(
+	nameKH nvarchar(100) not null,
+	sumBill float not null,
+	ngaymua date
+)
+go
+
+
+SELECT * 
+FROM Statistic
+WHERE ngaymua >= '2022/06/01'
+AND ngaymua <= '2022/06/03'
+
+SELECT * 
+FROM Statistic
+WHERE ngaymua BETWEEN '2022/06/01'  AND '2022/06/05'

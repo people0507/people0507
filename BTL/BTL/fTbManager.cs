@@ -105,9 +105,9 @@ namespace BTL
             cmd1.ExecuteNonQuery();
             LoadData();
 
-            //cmd1 = cn1.CreateCommand();
-            //cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
-            //cmd1.ExecuteNonQuery();
+            cmd1 = cn1.CreateCommand();
+            cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES (N'" + textBox5.Text + "', N'" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox6.Text + "', CONVERT(DATETIME, '" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "', 102))";
+            cmd1.ExecuteNonQuery();
 
         }
 
@@ -120,10 +120,14 @@ namespace BTL
             }
             label7.Text = tong1.ToString();
 
-          
-            
 
-             //"INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
+            cmd1 = cn1.CreateCommand();
+            cmd1.CommandText = "INSERT INTO Statistic (nameKH,sumBill,ngaymua) VALUES (N'" + textBox5.Text + "','" +label7.Text+ "', CONVERT(DATETIME, '" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "', 102))";
+            cmd1.ExecuteNonQuery();
+
+
+
+            //"INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -237,9 +241,25 @@ namespace BTL
 
         private void button5_Click(object sender, EventArgs e)
         {
-            cmd1 = cn1.CreateCommand();
-            cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES (N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
-            cmd1.ExecuteNonQuery();
+            
+           
+            
+        }
+
+        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fBilli4 k = new fBilli4();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+
+        private void thốngKêBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fStatistics j = new fStatistics();
+            this.Hide();
+            j.ShowDialog();
+            this.Show();
         }
     }
     }

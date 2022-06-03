@@ -147,7 +147,7 @@
             this.ClientSize = new System.Drawing.Size(965, 670);
             this.Controls.Add(this.panel1);
             this.Name = "fListProduct";
-            this.Text = "ListProduct";
+            this.Text = "Danh Mục Sản Phẩm";
             this.Load += new System.EventHandler(this.fListProduct_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

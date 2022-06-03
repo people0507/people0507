@@ -269,7 +269,7 @@
             this.ClientSize = new System.Drawing.Size(1058, 644);
             this.Controls.Add(this.panel1);
             this.Name = "fProduct";
-            this.Text = "Product";
+            this.Text = "Sản Phẩm";
             this.Load += new System.EventHandler(this.fProduct_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
