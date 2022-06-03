@@ -1,22 +1,28 @@
 ﻿Create database QuanliSanPhamSieuThi
 go
+Create table Account
+	(
+	UserName Nvarchar(100) not null,
+	Name Nvarchar(100) not null,
+	PassWord Nvarchar(1000) not null,
+	Role nvarchar(50),
+	Born nvarchar(50),
+	Sex nvarchar(50),
+	Birth Date,
+	Contact nvarchar(50),
+	)
+go
 
---Product
---Stall
---ListOfProducts
---Account
---Bill
---BillInfo
-CREATE TABLE Account
-(
-	UserName NVARCHAR(100) PRIMARY KEY,	
-	DisplayName NVARCHAR(100) NOT NULL DEFAULT N'admin',
-	PassWord NVARCHAR(1000) NOT NULL DEFAULT 0,
-	Type INT NOT NULL  DEFAULT 0 
-)
-GO
+INSERT INTO Account
+                         (UserName, Name, PassWord, Role, Born, Sex, Birth, Contact)
+VALUES        (N'admin', N'Nguyễn Đăng Nhân', N'1', N'admin', N'Hà Nội', N'Nam', CONVERT(DATETIME, '2002-07-05 00:00:00', 102), N'0999999999')
+
+
+
+
 select * from Products,ListOfProduct where Products.id = ListOfProduct.id 
 select Product.id ,Product.name,ListOfProduct.
+
 
 CREATE TABLE ListOfProduct
 (
@@ -57,6 +63,9 @@ Create table Bills(
 )
 go
 
+
+
+
 insert into Account 
 	( UserName,
 	DisplayName,
@@ -82,3 +91,4 @@ values  ( N'staff' , -- UserName - nvarchar(100)
 
 
 
+INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES (N'Nhân', N'Chim', 10000, 2, CONVERT(DATETIME, '2022-06-03 00:00:00', 102))
