@@ -173,6 +173,7 @@
             this.txtHT.Name = "txtHT";
             this.txtHT.Size = new System.Drawing.Size(200, 20);
             this.txtHT.TabIndex = 8;
+            this.txtHT.TextChanged += new System.EventHandler(this.txtHT_TextChanged);
             this.txtHT.Leave += new System.EventHandler(this.txtHT_Leave);
             // 
             // txtAcc

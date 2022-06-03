@@ -68,6 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -119,9 +120,9 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 65);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 77);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(569, 413);
+            this.dataGridView1.Size = new System.Drawing.Size(569, 405);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -156,9 +157,9 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(627, 65);
+            this.listView1.Location = new System.Drawing.Point(627, 77);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(405, 293);
+            this.listView1.Size = new System.Drawing.Size(405, 281);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -410,11 +411,22 @@
             this.textBox8.Size = new System.Drawing.Size(257, 20);
             this.textBox8.TabIndex = 26;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(437, 499);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(110, 23);
+            this.button5.TabIndex = 27;
+            this.button5.Text = "Lưu Vào SQL";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // fTbManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1063, 601);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label8);
@@ -485,5 +497,6 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button button5;
     }
 }

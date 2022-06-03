@@ -105,7 +105,10 @@ namespace BTL
             cmd1.ExecuteNonQuery();
             LoadData();
 
-            
+            //cmd1 = cn1.CreateCommand();
+            //cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
+            //cmd1.ExecuteNonQuery();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -118,31 +121,24 @@ namespace BTL
             label7.Text = tong1.ToString();
 
           
-            //cmd1 = cn1.CreateCommand();
-            //cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'"+textBox5.Text+"', N'"+textBox2.Text+"','"+textBox3.Text+"','"+textBox6.Text+"','"+dateTimePicker1.Value.ToString("yyyy/MM/dd")+ "'";
-            //cmd1.ExecuteNonQuery();
+            
 
              //"INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("*****$Siêu thị Team 8$*****", new Font("Centuey Gothic", 30, FontStyle.Regular), Brushes.Black, new PointF(200, 15));
-
+            e.Graphics.DrawString("*****$ Team 8 Supermarket $*****", new Font("Centuey Gothic", 30, FontStyle.Regular), Brushes.Black, new PointF(100, 15));
             e.Graphics.DrawString("ID", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(10, 100));
             e.Graphics.DrawString("Sản Phẩm", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(100, 100));
             e.Graphics.DrawString("Giá SP", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(300, 100));
             e.Graphics.DrawString("Số Lượng", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(450, 100));
             e.Graphics.DrawString("Thành Tiền", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(650, 100));
-
-
-
-
-            e.Graphics.DrawString("Tổng tiền: " + label7.Text, new Font("Centuey Gothic", 30, FontStyle.Regular), Brushes.Black, new PointF(200, 800));
-            e.Graphics.DrawString("Tên Khách Hàng: " + textBox5.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 900));
-
-            e.Graphics.DrawString("Ngày mua hàng: " + dateTimePicker1.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 950));
-            e.Graphics.DrawString("*****Cảm ơn quý khách đã mua hàng******", new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(200, 1000));
+            e.Graphics.DrawString("----------------------------------------", new Font("Centuey Gothic", 30, FontStyle.Regular), Brushes.Black, new PointF(150, 850));
+            e.Graphics.DrawString("Tổng Tiền Phải Trả: " + label7.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 900));
+            e.Graphics.DrawString("Tên Khách Hàng: " + textBox5.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 950));
+            e.Graphics.DrawString("Ngày Mua Hàng: " + dateTimePicker1.Text, new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(50, 1000));
+            e.Graphics.DrawString("****** Cảm Ơn Quý Khách Đã Mua Hàng ******", new Font("Centuey Gothic", 20, FontStyle.Regular), Brushes.Black, new PointF(150, 1050));
 
             int lap = 0 ;
             int lap1 = 0;
@@ -238,7 +234,13 @@ namespace BTL
             
                     
             }
-           
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cmd1 = cn1.CreateCommand();
+            cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES (N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
+            cmd1.ExecuteNonQuery();
         }
+    }
     }
 

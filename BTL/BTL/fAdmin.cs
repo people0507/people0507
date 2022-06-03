@@ -237,5 +237,10 @@ namespace BTL
         {
 
         }
+
+        private void txtHT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
