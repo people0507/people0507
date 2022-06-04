@@ -13,14 +13,14 @@ namespace BTL
 {
     public partial class fAdmin : Form
     {
-        
+        //Kết nối SQL !
         SqlConnection cn;
         SqlCommand cmd;
         string sql = @"Data Source=MSI\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable dt = new DataTable();
 
-
+        //Tạo hàm LoadData để sử dụng mỗi khi muốn load lại dữ liệu sẽ gọi đến nó !
         public void loadData()
         {
             cmd = cn.CreateCommand();
@@ -44,6 +44,7 @@ namespace BTL
 
         private void fAdmin_Load(object sender, EventArgs e)
         {
+            //Mở kết nối mỗi lần load form!
             cn = new SqlConnection(sql);
             cn.Open();
             loadData();
@@ -51,7 +52,7 @@ namespace BTL
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
+            //Check giới tính của nhân viên !
             string insert_gender;
             if (rbMale.Checked)
             {
@@ -60,6 +61,7 @@ namespace BTL
             else { 
                 insert_gender = "Nữ";
             }
+            //Thêm các thông tin của nhân viên bằng câu lệnh truy vấn sql!
             cmd = cn.CreateCommand();
             cmd.CommandText = "INSERT INTO Account (UserName,Name,PassWord,Role,Born,Sex,Birth,Contact) VALUES ('" + txtAcc.Text + "' , N'" + txtName.Text + "' , '" + txtPW.Text + "' , N'" + txtRole.Text + "' , N'" + txtHT.Text +"',N'" + insert_gender + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "','"+txtContact.Text+"')";
             cmd.ExecuteNonQuery();
@@ -68,10 +70,11 @@ namespace BTL
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            //Check giới tính của nhân viên !
             string insert_gender;
             if (rbMale.Checked) insert_gender = "Nam";
             else insert_gender = "Nữ";
-
+            //Sửa thông tin của nhân viên bằng câu lệnh truy vấn sql!
             cmd = cn.CreateCommand();
             cmd.CommandText = "UPDATE Account SET UserName = N'" + txtAcc.Text + "', Name = N'" + txtName.Text + "', PassWord = N'" + txtPW.Text + "', Role = N'" + txtRole.Text + "', Born = N'" + txtHT.Text + "', Sex = N'" + insert_gender + "', Birth ='"+ dateTimePicker1.Value.ToString("yyyy/MM/dd")+"',Contact ='"+txtContact.Text+"' WHERE Username = '" + txtAcc.Text +"'";
             cmd.ExecuteNonQuery();
@@ -81,6 +84,7 @@ namespace BTL
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Sự kiện khi ấn vào mỗi một ô trong datagridview sẽ hiện tương ứng trong textbox!
             int i = dataGridView1.CurrentRow.Index;
             txtName.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
             txtAcc.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
@@ -105,6 +109,7 @@ namespace BTL
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            //Xóa thông tin nhân viên!
             cmd = cn.CreateCommand();
             cmd.CommandText = "DELETE FROM Account WHERE UserName = '" + txtAcc.Text + "'";
             cmd.ExecuteNonQuery();
@@ -128,6 +133,7 @@ namespace BTL
 
         private void managerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Nối sang form khác!
             fTbManager n = new fTbManager();
             this.Hide();
             n.ShowDialog();
@@ -136,6 +142,7 @@ namespace BTL
 
         private void danhMụcToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Nối sang form khác!
             fListProduct a = new fListProduct();
             this.Hide();
             a.ShowDialog();
@@ -144,6 +151,7 @@ namespace BTL
 
         private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Nối sang form khác!
             fProduct b = new fProduct();
             this.Hide();
             b.ShowDialog();
@@ -152,6 +160,7 @@ namespace BTL
 
         private void txtName_Leave(object sender, EventArgs e)
         {
+            //Sự kiến bắt lỗi để trống!
             if (txtName.Text == "")
             {
                 errorProvider1.SetError(txtName, "Không được để trống tên !");
@@ -169,6 +178,7 @@ namespace BTL
 
         private void txtAcc_Leave(object sender, EventArgs e)
         {
+            //Sự kiến bắt lỗi để trống!
             if (txtAcc.Text == "")
             {
                 errorProvider1.SetError(txtAcc, "Không được để trống tài khoản!");
@@ -181,6 +191,7 @@ namespace BTL
 
         private void txtPW_Leave(object sender, EventArgs e)
         {
+            //Sự kiến bắt lỗi để trống!
             if (txtPW.Text == "")
             {
                 errorProvider1.SetError(txtPW, "Không được để trống mật khẩu!");
@@ -193,6 +204,7 @@ namespace BTL
 
         private void txtHT_Leave(object sender, EventArgs e)
         {
+            //Sự kiến bắt lỗi để trống!
             if (txtHT.Text == "")
             {
                 errorProvider1.SetError(txtHT, "Không được để trống quê quán!");
@@ -205,6 +217,7 @@ namespace BTL
 
         private void txtRole_Leave(object sender, EventArgs e)
         {
+            //Sự kiến bắt lỗi để trống!
             if (txtRole.Text == "")
             {
                 errorProvider1.SetError(txtRole, "Không được để trống quyền!");
@@ -216,7 +229,7 @@ namespace BTL
         }
 
         private void txtContact_TextChanged_1(object sender, EventArgs e)
-        {
+        {//Sự kiện bắt lỗi không được nhập chữ!
             Control ctr = (Control)sender;
 
             if (ctr.Text.Trim().Length > 0 && !char.IsDigit(ctr.Text, ctr.Text.Length - 1))

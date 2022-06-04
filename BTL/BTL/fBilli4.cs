@@ -17,6 +17,7 @@ namespace BTL
         string sql = @"Data Source=MSI\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable dt = new DataTable();
+
         public fBilli4()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace BTL
             cn = new SqlConnection(sql);
             cn.Open();
             LoadData();
+            cn.Close();
         }
 
         public void LoadData()
@@ -79,14 +81,15 @@ namespace BTL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(textBox6.Text == "")
-            {
-            cmd = cn.CreateCommand();
-            cmd.CommandText = "select * from Bill4 where idBill '%"+textBox5.Text+"%'";
-            cmd.ExecuteNonQuery();
-            LoadData();
-            }
-            
+                cn.Open();
+                cmd = cn.CreateCommand();
+                cmd.CommandText = "Select * from Bill4 where  nameKH like  N'" + textBox6.Text + "';";
+                adapter.SelectCommand = cmd;
+                dt.Clear();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+                cn.Close();
+
         }
     }
 }

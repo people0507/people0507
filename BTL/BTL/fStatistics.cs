@@ -73,6 +73,7 @@ namespace BTL
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //Tính tổng doanh thu datagridview
             int sum = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; ++i)
             {

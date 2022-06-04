@@ -332,8 +332,8 @@
             // managerToolStripMenuItem
             // 
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
-            this.managerToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.managerToolStripMenuItem.Text = "Bánh Hàng";
+            this.managerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.managerToolStripMenuItem.Text = "Bán Hàng";
             this.managerToolStripMenuItem.Click += new System.EventHandler(this.managerToolStripMenuItem_Click);
             // 
             // hàngHóaToolStripMenuItem

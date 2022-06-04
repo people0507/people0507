@@ -37,7 +37,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -74,7 +73,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(119, 27);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 20);
+            this.textBox1.Size = new System.Drawing.Size(151, 20);
             this.textBox1.TabIndex = 2;
             // 
             // label2
@@ -92,7 +91,6 @@
             this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.button3);
@@ -128,7 +126,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(493, 229);
+            this.button4.Location = new System.Drawing.Point(419, 229);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(119, 23);
             this.button4.TabIndex = 13;
@@ -143,19 +141,9 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(272, 20);
             this.dateTimePicker1.TabIndex = 12;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(173, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Sửa Hóa Đơn";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(340, 229);
+            this.button2.Location = new System.Drawing.Point(187, 229);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 23);
             this.button2.TabIndex = 1;
@@ -165,7 +153,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(215, 194);
+            this.textBox6.Location = new System.Drawing.Point(207, 202);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(301, 20);
             this.textBox6.TabIndex = 11;
@@ -173,11 +161,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(522, 192);
+            this.button3.Location = new System.Drawing.Point(514, 200);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 23);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Tìm kiếm Sản Phẩm";
+            this.button3.Text = "Tìm kiếm ";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -233,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 640);
+            this.ClientSize = new System.Drawing.Size(851, 640);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "fBilli4";
@@ -255,7 +243,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button3;

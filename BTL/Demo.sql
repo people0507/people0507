@@ -128,11 +128,5 @@ Create table Statistic
 go
 
 
-SELECT * 
-FROM Statistic
-WHERE ngaymua >= '2022/06/01'
-AND ngaymua <= '2022/06/03'
 
-SELECT * 
-FROM Statistic
-WHERE ngaymua BETWEEN '2022/06/01'  AND '2022/06/05'
+

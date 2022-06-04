@@ -19,9 +19,6 @@ namespace BTL
         SqlDataAdapter adapter1 = new SqlDataAdapter();
         DataTable dt1 = new DataTable();
 
-       
-
-
         public fTbManager()
         {
             InitializeComponent();
@@ -80,22 +77,23 @@ namespace BTL
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Tính tổng của cột thành tiền
             int a = Convert.ToInt32(textBox3.Text);
             int b = Convert.ToInt32(textBox6.Text);
             int tong;
             tong = a * b;
             label5.Text = tong.ToString();
-
+            //Thêm dữ liệu từ textbox vào trong listview
             ListViewItem lvi = new ListViewItem(textBox1.Text);
             lvi.SubItems.Add(textBox2.Text);
             lvi.SubItems.Add(textBox3.Text);
             lvi.SubItems.Add(textBox6.Text);
             lvi.SubItems.Add(label5.Text);
-            
             listView1.Items.Add(lvi);
+            
+            //Giảm số lượng sản phẩm trong kho khi ấn thêm sản phẩm vào hóa đơn bằng câu lệnh truy vấn SQL
             int c = Convert.ToInt32(textBox4.Text);
             int d = Convert.ToInt32(textBox6.Text);
-            
             int tong2 = 0;
             tong2 = c - d;
             textBox7.Text = tong2.ToString();
@@ -104,7 +102,7 @@ namespace BTL
             cmd1.CommandText = "UPDATE Products SET amount = '"+textBox7.Text+"' where idPr ='"+textBox1.Text+"'" ;
             cmd1.ExecuteNonQuery();
             LoadData();
-
+            //Thêm thông tin sản phẩm đã chọn vào bảng hóa đơn
             cmd1 = cn1.CreateCommand();
             cmd1.CommandText = "INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES (N'" + textBox5.Text + "', N'" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox6.Text + "', CONVERT(DATETIME, '" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "', 102))";
             cmd1.ExecuteNonQuery();
@@ -113,6 +111,7 @@ namespace BTL
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Tính tổng tiền phải thanh toán
             double tong1 = 0;
             for (int i = 0; i < listView1.Items.Count; i++)
             {
@@ -120,18 +119,15 @@ namespace BTL
             }
             label7.Text = tong1.ToString();
 
-
+            //Thêm thông tin người mua ngày mua và số tiền người dùng mua hàng ở siêu thị
             cmd1 = cn1.CreateCommand();
             cmd1.CommandText = "INSERT INTO Statistic (nameKH,sumBill,ngaymua) VALUES (N'" + textBox5.Text + "','" +label7.Text+ "', CONVERT(DATETIME, '" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "', 102))";
             cmd1.ExecuteNonQuery();
-
-
-
-            //"INSERT INTO Bill4 (nameKH, namePr, price, amount, ngaymua) VALUES(N'" + textBox5.Text + "', N'" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'";
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            //Cứ hiểu cái Sự kiện này để vẽ ra hóa đơn !
             e.Graphics.DrawString("*****$ Team 8 Supermarket $*****", new Font("Centuey Gothic", 30, FontStyle.Regular), Brushes.Black, new PointF(100, 15));
             e.Graphics.DrawString("ID", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(10, 100));
             e.Graphics.DrawString("Sản Phẩm", new Font("Centuey Gothic", 25, FontStyle.Regular), Brushes.Black, new PointF(100, 100));
@@ -200,6 +196,7 @@ namespace BTL
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
             {
                 printDocument1.Print();
@@ -223,6 +220,7 @@ namespace BTL
 
         private void button4_Click(object sender, EventArgs e)
         {
+                //Xóa sản phẩm trong hóa đơn nếu khách đổi ý không mua
                 int c = Convert.ToInt32(textBox7.Text);
                 int d = Convert.ToInt32(textBox6.Text);
                 int tong3 = 0;
@@ -260,6 +258,14 @@ namespace BTL
             this.Hide();
             j.ShowDialog();
             this.Show();
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox6.Text.Trim().Length > 0 && !char.IsDigit(textBox6.Text, textBox6.Text.Length - 1))
+            {
+                errorProvider1.SetError(textBox6, "Không được nhập chữ!");
+            }
         }
     }
     }

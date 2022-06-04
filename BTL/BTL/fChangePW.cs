@@ -43,6 +43,7 @@ namespace BTL
             {
                 if(newpw == typenpw && newpw != "" && typenpw != "")
                 {
+                    //Đổi mật khẩu nếu đáp ứng điều kiện
                     SqlDataAdapter da1 = new SqlDataAdapter("update Account set PassWord = N'"+newpw+"'where UserName =N'"+tk+"' and PassWord =N'"+mk+"'",cn);
                     DataTable dt1 = new DataTable();
                     da1.Fill(dt1);

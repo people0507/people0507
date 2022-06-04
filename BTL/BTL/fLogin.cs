@@ -39,8 +39,10 @@ namespace BTL
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //Kết nối với SQL
             SqlConnection cn = new SqlConnection("Data Source=MSI\\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True");
             SqlConnection cn1 = new SqlConnection("Data Source=MSI\\GF63;Initial Catalog=QuanliSanPhamSieuThi;Integrated Security=True");
+            //Xử lý ngoại lệ  bằng try/catch
             try
             {
                 cn.Open();
@@ -57,8 +59,8 @@ namespace BTL
                 SqlCommand cmd1 = new SqlCommand(sql, cn1);
                 SqlDataReader dr1 = cmd1.ExecuteReader();
 
-
-                if (dr.Read() == true && role == "admin")
+            //Sử dụng SqlDataReader trả về giá trị true or false để check tk mk và role đúng or sai
+                if (dr.Read() == true && role == "admin")//Cấp quyền admin
                 {
                     MessageBox.Show("Đăng nhập thành công.");
                     fAdmin f = new fAdmin();
@@ -68,7 +70,7 @@ namespace BTL
                 }
                 
 
-                if (dr1.Read() == true && role == "staff")
+                if (dr1.Read() == true && role == "staff")//Cấp quyền nhân viên
                 {
                     MessageBox.Show("Đăng nhập thành công.");
                     fTbManager n = new fTbManager();
