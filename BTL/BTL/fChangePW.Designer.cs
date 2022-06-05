@@ -41,8 +41,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtTypeNPW = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnChangePW = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnChangePW = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -159,26 +159,30 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Nhập lại mật khẩu:";
             // 
-            // btnChangePW
-            // 
-            this.btnChangePW.Location = new System.Drawing.Point(260, 263);
-            this.btnChangePW.Name = "btnChangePW";
-            this.btnChangePW.Size = new System.Drawing.Size(128, 23);
-            this.btnChangePW.TabIndex = 4;
-            this.btnChangePW.Text = "Đổi Mật Khẩu";
-            this.btnChangePW.UseVisualStyleBackColor = true;
-            this.btnChangePW.Click += new System.EventHandler(this.btnChangePW_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btnChangePW
+            // 
+            this.btnChangePW.Image = global::BTL.Properties.Resources.secrecy_icon;
+            this.btnChangePW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnChangePW.Location = new System.Drawing.Point(260, 263);
+            this.btnChangePW.Name = "btnChangePW";
+            this.btnChangePW.Size = new System.Drawing.Size(128, 61);
+            this.btnChangePW.TabIndex = 4;
+            this.btnChangePW.Text = "Đổi Mật Khẩu";
+            this.btnChangePW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnChangePW.UseVisualStyleBackColor = true;
+            this.btnChangePW.Click += new System.EventHandler(this.btnChangePW_Click);
             // 
             // fChangePW
             // 
             this.AcceptButton = this.btnChangePW;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 307);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(644, 339);
             this.Controls.Add(this.btnChangePW);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);

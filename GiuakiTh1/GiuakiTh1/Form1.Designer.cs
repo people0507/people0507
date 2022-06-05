@@ -30,28 +30,28 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtNumSach = new System.Windows.Forms.TextBox();
+            this.txtTT = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtNumSach = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnTT = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnThongke = new System.Windows.Forms.Button();
             this.btnKetthuc = new System.Windows.Forms.Button();
+            this.btnThongke = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtSumKh = new System.Windows.Forms.TextBox();
-            this.txtSumSV = new System.Windows.Forms.TextBox();
             this.txtSumDT = new System.Windows.Forms.TextBox();
+            this.txtSumSV = new System.Windows.Forms.TextBox();
+            this.txtSumKh = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtTT = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,57 +75,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hóa đơn";
             // 
-            // label1
+            // txtTT
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên khách hàng";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(141, 47);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(277, 20);
-            this.txtName.TabIndex = 1;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Số lượng sách";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Khách hàng là SV:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Thành Tiền:";
-            // 
-            // txtNumSach
-            // 
-            this.txtNumSach.Location = new System.Drawing.Point(141, 81);
-            this.txtNumSach.Name = "txtNumSach";
-            this.txtNumSach.Size = new System.Drawing.Size(277, 20);
-            this.txtNumSach.TabIndex = 2;
-            this.txtNumSach.TextChanged += new System.EventHandler(this.txtNumKhach_TextChanged);
+            this.txtTT.Enabled = false;
+            this.txtTT.Location = new System.Drawing.Point(141, 141);
+            this.txtTT.Name = "txtTT";
+            this.txtTT.Size = new System.Drawing.Size(277, 20);
+            this.txtTT.TabIndex = 4;
             // 
             // checkBox1
             // 
@@ -136,6 +92,58 @@
             this.checkBox1.TabIndex = 3;
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // txtNumSach
+            // 
+            this.txtNumSach.Location = new System.Drawing.Point(141, 81);
+            this.txtNumSach.Name = "txtNumSach";
+            this.txtNumSach.Size = new System.Drawing.Size(277, 20);
+            this.txtNumSach.TabIndex = 2;
+            this.txtNumSach.TextChanged += new System.EventHandler(this.txtNumKhach_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Thành Tiền:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Khách hàng là SV:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Số lượng sách";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(141, 47);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(277, 20);
+            this.txtName.TabIndex = 1;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên khách hàng";
             // 
             // btnTT
             // 
@@ -159,15 +167,15 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
-            // btnNext
+            // btnKetthuc
             // 
-            this.btnNext.Location = new System.Drawing.Point(135, 19);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 1;
-            this.btnNext.Text = "Tiếp";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnKetthuc.Location = new System.Drawing.Point(343, 19);
+            this.btnKetthuc.Name = "btnKetthuc";
+            this.btnKetthuc.Size = new System.Drawing.Size(75, 23);
+            this.btnKetthuc.TabIndex = 3;
+            this.btnKetthuc.Text = "Kết thúc";
+            this.btnKetthuc.UseVisualStyleBackColor = true;
+            this.btnKetthuc.Click += new System.EventHandler(this.btnKetthuc_Click);
             // 
             // btnThongke
             // 
@@ -179,15 +187,15 @@
             this.btnThongke.UseVisualStyleBackColor = true;
             this.btnThongke.Click += new System.EventHandler(this.btnThongke_Click);
             // 
-            // btnKetthuc
+            // btnNext
             // 
-            this.btnKetthuc.Location = new System.Drawing.Point(343, 19);
-            this.btnKetthuc.Name = "btnKetthuc";
-            this.btnKetthuc.Size = new System.Drawing.Size(75, 23);
-            this.btnKetthuc.TabIndex = 3;
-            this.btnKetthuc.Text = "Kết thúc";
-            this.btnKetthuc.UseVisualStyleBackColor = true;
-            this.btnKetthuc.Click += new System.EventHandler(this.btnKetthuc_Click);
+            this.btnNext.Location = new System.Drawing.Point(135, 19);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 1;
+            this.btnNext.Text = "Tiếp";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // groupBox3
             // 
@@ -204,23 +212,27 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thống kê";
             // 
-            // label5
+            // txtSumDT
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Tổng số KH:";
+            this.txtSumDT.Location = new System.Drawing.Point(141, 97);
+            this.txtSumDT.Name = "txtSumDT";
+            this.txtSumDT.Size = new System.Drawing.Size(277, 20);
+            this.txtSumDT.TabIndex = 2;
             // 
-            // label6
+            // txtSumSV
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Tổng số KH là SV:";
+            this.txtSumSV.Location = new System.Drawing.Point(141, 65);
+            this.txtSumSV.Name = "txtSumSV";
+            this.txtSumSV.Size = new System.Drawing.Size(277, 20);
+            this.txtSumSV.TabIndex = 1;
+            // 
+            // txtSumKh
+            // 
+            this.txtSumKh.Location = new System.Drawing.Point(141, 29);
+            this.txtSumKh.Name = "txtSumKh";
+            this.txtSumKh.Size = new System.Drawing.Size(277, 20);
+            this.txtSumKh.TabIndex = 0;
+            this.txtSumKh.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label7
             // 
@@ -231,27 +243,23 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Tổng doanh thu:";
             // 
-            // txtSumKh
+            // label6
             // 
-            this.txtSumKh.Location = new System.Drawing.Point(141, 29);
-            this.txtSumKh.Name = "txtSumKh";
-            this.txtSumKh.Size = new System.Drawing.Size(277, 20);
-            this.txtSumKh.TabIndex = 0;
-            this.txtSumKh.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(37, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Tổng số KH là SV:";
             // 
-            // txtSumSV
+            // label5
             // 
-            this.txtSumSV.Location = new System.Drawing.Point(141, 65);
-            this.txtSumSV.Name = "txtSumSV";
-            this.txtSumSV.Size = new System.Drawing.Size(277, 20);
-            this.txtSumSV.TabIndex = 1;
-            // 
-            // txtSumDT
-            // 
-            this.txtSumDT.Location = new System.Drawing.Point(141, 97);
-            this.txtSumDT.Name = "txtSumDT";
-            this.txtSumDT.Size = new System.Drawing.Size(277, 20);
-            this.txtSumDT.TabIndex = 2;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(37, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Tổng số KH:";
             // 
             // label8
             // 
@@ -268,14 +276,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // txtTT
-            // 
-            this.txtTT.Enabled = false;
-            this.txtTT.Location = new System.Drawing.Point(141, 141);
-            this.txtTT.Name = "txtTT";
-            this.txtTT.Size = new System.Drawing.Size(277, 20);
-            this.txtTT.TabIndex = 4;
-            // 
             // Form1
             // 
             this.AcceptButton = this.btnTT;
@@ -289,6 +289,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quan Ly Sach";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

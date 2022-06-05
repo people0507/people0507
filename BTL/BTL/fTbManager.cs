@@ -108,11 +108,28 @@ namespace BTL
             cmd1.ExecuteNonQuery();
 
         }
+       
+        private void displayMessageBox(object sender, CancelEventArgs e)
+        {
+            e.Cancel= true;
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //Tính tổng tiền phải thanh toán
-            double tong1 = 0;
+            DialogResult r;
+
+            r = MessageBox.Show("Bạn có muốn thanh toán hóa đơn này!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+
+            MessageBoxDefaultButton.Button1);
+
+            if (r == DialogResult.No)
+            {
+            }    
+            else { 
+                if(checkBox1.Checked == false)
+                {
+             double tong1 = 0;
             for (int i = 0; i < listView1.Items.Count; i++)
             {
                 tong1 += Convert.ToDouble(listView1.Items[i].SubItems[4].Text);
@@ -123,6 +140,29 @@ namespace BTL
             cmd1 = cn1.CreateCommand();
             cmd1.CommandText = "INSERT INTO Statistic (nameKH,sumBill,ngaymua) VALUES (N'" + textBox5.Text + "','" +label7.Text+ "', CONVERT(DATETIME, '" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "', 102))";
             cmd1.ExecuteNonQuery();
+                }
+                else
+                {
+                    
+                    double tong1 = 0;
+                    double tong2 = 0;
+                    double a = Convert.ToDouble(numericUpDown1.Value);
+                    for (int i = 0; i < listView1.Items.Count; i++)
+                    {
+                        tong1 += Convert.ToDouble(listView1.Items[i].SubItems[4].Text);
+                    }
+                    tong2 =tong1- (tong1 * a/100);
+                    label7.Text = tong2.ToString();
+
+                    //Thêm thông tin người mua ngày mua và số tiền người dùng mua hàng ở siêu thị
+                    cmd1 = cn1.CreateCommand();
+                    cmd1.CommandText = "INSERT INTO Statistic (nameKH,sumBill,ngaymua) VALUES (N'" + textBox5.Text + "','" + label7.Text + "', CONVERT(DATETIME, '" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "', 102))";
+                    cmd1.ExecuteNonQuery();
+                }
+            
+            
+            }
+            
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -233,9 +273,12 @@ namespace BTL
                 cmd1.ExecuteNonQuery();
                 LoadData();
                 listView1.Items.Clear();
+
             
-                    
-            }
+                cmd1 = cn1.CreateCommand();
+            cmd1.CommandText = "DELETE FROM Bill4 where nameKH ='" + textBox5.Text + "'";
+            cmd1.ExecuteNonQuery();
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -266,6 +309,24 @@ namespace BTL
             {
                 errorProvider1.SetError(textBox6, "Không được nhập chữ!");
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            LoadData();
+            listView1.Items.Clear();
+            numericUpDown1.Value = 0;
+            textBox5.Clear();
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox6.Clear();
+            label7.Text = "0đ";
         }
     }
     }

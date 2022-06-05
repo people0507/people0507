@@ -77,6 +77,7 @@ namespace GiuakiTh1
             }
             if(checkBox1.Checked == false)
             {
+                txtName.Enabled = false;
                 b = a * 20000;
                 txtTT.Text = b.ToString();
             }
@@ -117,6 +118,11 @@ namespace GiuakiTh1
             if (r == DialogResult.Yes)
 
                 this.Close();   
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -26,15 +26,15 @@ namespace BTL
         private void Form1_Load(object sender, EventArgs e)
         {
             cn = new SqlConnection(sql);
-            cn.Open();
-            LoadData();
+            cn.Open(); 
+           LoadData();
             cn.Close();
         }
 
         public void LoadData()
         {
             cmd = cn.CreateCommand();
-            cmd.CommandText = "select * from Bill4";
+            cmd.CommandText = "select Bill4.idBill as [ID Hóa Đơn],Bill4.nameKH as [Tên Khách Hàng],Bill4.namePr as [Tên Sản Phẩm],Bill4.price as [Giá SP],Bill4.amount as [Số lượng SP],Bill4.ngaymua as [Ngày mua hàng] from Bill4";
             adapter.SelectCommand = cmd;
             dt.Clear();
             adapter.Fill(dt);
@@ -50,24 +50,11 @@ namespace BTL
             textBox4.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
             textBox5.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
             dateTimePicker1.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-            
+        
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            cmd = cn.CreateCommand();
-            cmd.CommandText = "UPDATE Bill4 SET nameKH = N'"+textBox1.Text+"', price = '"+textBox3.Text+"', amount ='"+textBox4.Text+"', namePr = N'"+textBox2.Text+"' where idBill = '"+textBox5.Text+"'";
-            cmd.ExecuteNonQuery();
-            LoadData();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            cmd = cn.CreateCommand();
-            cmd.CommandText = "DELETE FROM Bill4 WHERE idBill = '" + textBox5.Text + "'";
-            cmd.ExecuteNonQuery();
-            LoadData();
-        }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -83,13 +70,17 @@ namespace BTL
         {
                 cn.Open();
                 cmd = cn.CreateCommand();
-                cmd.CommandText = "Select * from Bill4 where  nameKH like  N'" + textBox6.Text + "';";
+                cmd.CommandText = "Select Bill4.idBill as [ID Hóa Đơn],Bill4.nameKH as [Tên Khách Hàng],Bill4.namePr as [Tên Sản Phẩm],Bill4.price as [Giá SP],Bill4.amount as [Số lượng SP],Bill4.ngaymua as [Ngày mua hàng] from Bill4 where  nameKH like  N'" + textBox6.Text + "';";
                 adapter.SelectCommand = cmd;
                 dt.Clear();
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
                 cn.Close();
+        }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

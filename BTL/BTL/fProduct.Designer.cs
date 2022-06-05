@@ -32,7 +32,6 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnLoad1 = new System.Windows.Forms.Button();
             this.btnAdd1 = new System.Windows.Forms.Button();
             this.btnEdit1 = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel4.SuspendLayout();
@@ -61,6 +61,7 @@
             this.panel1.Controls.Add(this.dataGridView2);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Location = new System.Drawing.Point(12, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1034, 637);
@@ -69,6 +70,7 @@
             // dataGridView2
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.Ivory;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(12, 8);
             this.dataGridView2.Name = "dataGridView2";
@@ -91,58 +93,60 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(133, 115);
+            this.txtSearch.Location = new System.Drawing.Point(115, 120);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(276, 20);
+            this.txtSearch.Size = new System.Drawing.Size(283, 20);
             this.txtSearch.TabIndex = 7;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(34, 99);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 51);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Tìm";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnLoad1
             // 
+            this.btnLoad1.Image = global::BTL.Properties.Resources.Button_Reload_icon;
+            this.btnLoad1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnLoad1.Location = new System.Drawing.Point(321, 27);
             this.btnLoad1.Name = "btnLoad1";
-            this.btnLoad1.Size = new System.Drawing.Size(75, 51);
+            this.btnLoad1.Size = new System.Drawing.Size(75, 60);
             this.btnLoad1.TabIndex = 5;
             this.btnLoad1.Text = "Load";
+            this.btnLoad1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLoad1.UseVisualStyleBackColor = true;
             this.btnLoad1.Click += new System.EventHandler(this.btnLoad1_Click);
             // 
             // btnAdd1
             // 
+            this.btnAdd1.Image = global::BTL.Properties.Resources.add_icon;
+            this.btnAdd1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAdd1.Location = new System.Drawing.Point(18, 27);
             this.btnAdd1.Name = "btnAdd1";
-            this.btnAdd1.Size = new System.Drawing.Size(75, 51);
+            this.btnAdd1.Size = new System.Drawing.Size(75, 60);
             this.btnAdd1.TabIndex = 2;
             this.btnAdd1.Text = "Thêm";
+            this.btnAdd1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdd1.UseVisualStyleBackColor = true;
             this.btnAdd1.Click += new System.EventHandler(this.btnAdd1_Click);
             // 
             // btnEdit1
             // 
+            this.btnEdit1.Image = global::BTL.Properties.Resources.Pencil_1_icon;
+            this.btnEdit1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEdit1.Location = new System.Drawing.Point(220, 27);
             this.btnEdit1.Name = "btnEdit1";
-            this.btnEdit1.Size = new System.Drawing.Size(75, 51);
+            this.btnEdit1.Size = new System.Drawing.Size(75, 60);
             this.btnEdit1.TabIndex = 4;
             this.btnEdit1.Text = "Sửa";
+            this.btnEdit1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEdit1.UseVisualStyleBackColor = true;
             this.btnEdit1.Click += new System.EventHandler(this.btnEdit1_Click);
             // 
             // btnDelete1
             // 
+            this.btnDelete1.Image = global::BTL.Properties.Resources.Symbols_Delete_icon;
+            this.btnDelete1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelete1.Location = new System.Drawing.Point(120, 27);
             this.btnDelete1.Name = "btnDelete1";
-            this.btnDelete1.Size = new System.Drawing.Size(75, 51);
+            this.btnDelete1.Size = new System.Drawing.Size(75, 60);
             this.btnDelete1.TabIndex = 3;
             this.btnDelete1.Text = "Xóa";
+            this.btnDelete1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete1.UseVisualStyleBackColor = true;
             this.btnDelete1.Click += new System.EventHandler(this.btnDelete1_Click);
             // 
@@ -262,13 +266,27 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "ID SP:";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = global::BTL.Properties.Resources.search_icon__3_;
+            this.btnSearch.Location = new System.Drawing.Point(34, 99);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 60);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // fProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1058, 644);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "fProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sản Phẩm";
             this.Load += new System.EventHandler(this.fProduct_Load);
             this.panel1.ResumeLayout(false);
